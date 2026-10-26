@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Student = require("./models/student");
+const Student = require("./models/Student");
 
 const app = express();
 
@@ -43,7 +43,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // GET: View all students
-app.get("/api/students", async (req, res) => {
+app.get("/api/Students", async (req, res) => {
   try {
     const students = await Student.find().sort({ createdAt: -1 });
     res.json(students);
@@ -53,7 +53,7 @@ app.get("/api/students", async (req, res) => {
 });
 
 // POST: Add a student
-app.post("/api/students", async (req, res) => {
+app.post("/api/Students", async (req, res) => {
   try {
     const student = await Student.create({
       name: req.body.name,
@@ -68,7 +68,7 @@ app.post("/api/students", async (req, res) => {
 });
 
 // GET: View one student
-app.get("/api/students/:id", async (req, res) => {
+app.get("/api/Students/:id", async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
 
@@ -83,7 +83,7 @@ app.get("/api/students/:id", async (req, res) => {
 });
 
 // PUT: Update a student
-app.put("/api/students/:id", async (req, res) => {
+app.put("/api/Students/:id", async (req, res) => {
   try {
     const student = await Student.findByIdAndUpdate(
       req.params.id,
@@ -106,7 +106,7 @@ app.put("/api/students/:id", async (req, res) => {
 });
 
 // DELETE: Remove a student
-app.delete("/api/students/:id", async (req, res) => {
+app.delete("/api/Students/:id", async (req, res) => {
   try {
     const student = await Student.findByIdAndDelete(req.params.id);
 
