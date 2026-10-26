@@ -123,7 +123,9 @@ app.delete("/api/Students/:id", async (req, res) => {
 // Start server only after MongoDB connects
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: "student_management"
+})
   .then(() => {
     console.log("Connected to MongoDB successfully!");
 
