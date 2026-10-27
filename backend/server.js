@@ -10,6 +10,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:8080",
+  "https://student-management-frontend-vtlf.onrender.com",
+  "https://campusflow-v2-preview.onrender.com",
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
